@@ -19,11 +19,10 @@ require (
 	github.com/go-logr/logr v0.1.0
 	github.com/go-openapi/jsonpointer v0.19.2 // indirect
 	github.com/gogo/protobuf v1.3.1
-	github.com/golangplus/testing v0.0.0-20180327235837-af21d9c3145e
 	github.com/google/go-cmp v0.3.1
+	github.com/google/martian v2.1.0+incompatible
 	github.com/gregjones/httpcache v0.0.0-20190611155906-901d90724c79 // indirect
 	github.com/hashicorp/go-getter v1.0.2
-	github.com/hashicorp/go-version v1.2.0
 	github.com/imdario/mergo v0.3.8
 	github.com/kubernetes-sigs/application v0.8.0
 	github.com/onrik/logrus v0.2.1
@@ -35,19 +34,16 @@ require (
 	github.com/spf13/cobra v0.0.5
 	github.com/spf13/pflag v1.0.5
 	github.com/spf13/viper v1.4.0
-	github.com/stretchr/testify v1.4.0
 	github.com/tektoncd/pipeline v0.10.1
-	github.com/tidwall/gjson v1.4.0
-	github.com/tidwall/pretty v1.0.1 // indirect
 	go.uber.org/zap v1.12.0 // indirect
 	golang.org/x/crypto v0.0.0
-	golang.org/x/net v0.0.0-20190909003024-a7b16738d86b
+	golang.org/x/net v0.0.0-20191119073136-fc4aabc6c914
 	golang.org/x/oauth2 v0.0.0-20190604053449-0f29369cfe45
 	google.golang.org/api v0.10.0
 	google.golang.org/genproto v0.0.0-20191009194640-548a555dbc03
 	gopkg.in/airbrake/gobrake.v2 v2.0.9 // indirect
 	gopkg.in/gemnasium/logrus-airbrake-hook.v2 v2.1.2 // indirect
-	gopkg.in/yaml.v2 v2.2.5
+	gopkg.in/yaml.v2 v2.2.8
 	k8s.io/api v0.17.0
 	k8s.io/apiextensions-apiserver v0.0.0
 	k8s.io/apimachinery v0.17.1
@@ -58,6 +54,7 @@ require (
 	k8s.io/utils v0.0.0-20191030222137-2b95a09bc58d // indirect
 	sigs.k8s.io/controller-runtime v0.4.0
 	sigs.k8s.io/kustomize/v3 v3.2.0
+	sigs.k8s.io/yaml v1.1.0
 )
 
 replace (
