@@ -18,9 +18,10 @@ package utils
 
 import (
 	"fmt"
-	awssdk "github.com/aws/aws-sdk-go/aws"
 	"os/exec"
 	"regexp"
+
+	awssdk "github.com/aws/aws-sdk-go/aws"
 
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/sts"

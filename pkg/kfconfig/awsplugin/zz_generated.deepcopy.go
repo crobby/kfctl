@@ -74,26 +74,6 @@ func (in *AwsPluginSpec) DeepCopyInto(out *AwsPluginSpec) {
 		*out = new(bool)
 		**out = **in
 	}
-	if in.EnableNodeGroupLog != nil {
-		in, out := &in.EnableNodeGroupLog, &out.EnableNodeGroupLog
-		*out = new(bool)
-		**out = **in
-	}
-	if in.ManagedCluster != nil {
-		in, out := &in.ManagedCluster, &out.ManagedCluster
-		*out = new(bool)
-		**out = **in
-	}
-	if in.ManagedRelationDatabase != nil {
-		in, out := &in.ManagedRelationDatabase, &out.ManagedRelationDatabase
-		*out = new(RelationDatabaseConfig)
-		(*in).DeepCopyInto(*out)
-	}
-	if in.ManagedObjectStorage != nil {
-		in, out := &in.ManagedObjectStorage, &out.ManagedObjectStorage
-		*out = new(ObjectStorageConfig)
-		**out = **in
-	}
 	return
 }
 
