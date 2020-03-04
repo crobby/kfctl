@@ -1,6 +1,9 @@
 package aws
 
 import (
+	"os"
+	"path/filepath"
+
 	kfapis "github.com/kubeflow/kfctl/v3/pkg/apis"
 	"github.com/pkg/errors"
 	log "github.com/sirupsen/logrus"
@@ -8,19 +11,12 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	clientset "k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/tools/clientcmd"
-	"os"
-	"path/filepath"
 )
 
 // getK8sclient creates a Kubernetes client set
 func getK8sclient() (*clientset.Clientset, error) {
-	kubeconfig := os.Getenv("KUBECONFIG")
-
-	if kubeconfig == "" {
-		if home := homeDir(); home != "" {
-			kubeconfig = filepath.Join(home, ".kube", "config")
-		}
-	}
+	home := homeDir()
+	kubeconfig := filepath.Join(home, ".kube", "config")
 
 	// use the current context in kubeconfig
 	config, err := clientcmd.BuildConfigFromFlags("", kubeconfig)
@@ -87,7 +83,6 @@ func createSecret(client *clientset.Clientset, secretName string, namespace stri
 		},
 		Data: data,
 	}
-	log.Infof("Creating secret: %v/%v", namespace, secretName)
 	_, err := client.CoreV1().Secrets(namespace).Create(secret)
 	if err == nil {
 		return nil

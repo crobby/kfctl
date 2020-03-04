@@ -25,6 +25,33 @@ type AwsPluginSpec struct {
 	Roles []string `json:"roles,omitempty"`
 
 	EnablePodIamPolicy *bool `json:"enablePodIamPolicy,omitempty"`
+
+	EnableNodeGroupLog *bool `json:"enableNodeGroupLog,omitempty"`
+
+	ManagedCluster *bool `json:"managedCluster,omitempty"`
+
+	ManagedRelationDatabase *RelationDatabaseConfig `json:"managedRelationDatabase,omitempty"`
+
+	ManagedObjectStorage *ObjectStorageConfig `json:"managedObjectStorage,omitempty"`
+
+	// TODO: Addon is used to host some optional aws specific components
+	// EFS, FSX CSI Plugin, Device Plugin, etc
+	//AddOns []string `json:"addons,omitempty"`
+}
+
+type RelationDatabaseConfig struct {
+	Host     string `json:"host,omitempty"`
+	Port     *int   `json:"port,omitempty"`
+	Database string `json:"database,omitempty"`
+	Username string `json:"username,omitempty"`
+	Password string `json:"password,omitempty"`
+}
+
+type ObjectStorageConfig struct {
+	Endpoint   string `json:"endpoint,omitempty"`
+	Region     string `json:"region,omitempty"`
+	Bucket     string `json:"bucket,omitempty"`
+	PathPrefix string `json:"pathPrefix,omitempty"`
 }
 
 type Auth struct {
@@ -218,14 +245,5 @@ func (p *AwsPluginSpec) GetManagedCluster() bool {
 	}
 
 	v := p.ManagedCluster
-	return *v
-}
-
-func (p *AwsPluginSpec) GetEnablePodIamPolicy() bool {
-	if p.EnablePodIamPolicy == nil {
-		return true
-	}
-
-	v := p.EnablePodIamPolicy
 	return *v
 }
